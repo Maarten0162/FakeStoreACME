@@ -9,8 +9,10 @@ import axios from "axios";
 
 
 export default async function ProductsPage() {
-  const response = await axios.get('http://localhost:3000/api/products')
-  const products = response.data as productType[]
+  //const response = await axios.get('http://localhost:3000/api/products')
+  const response = null;
+  //const products = response.data as productType[]
+  const products : productType[] =  []
 
   return (
     <section className="relative overflow-hidden">
