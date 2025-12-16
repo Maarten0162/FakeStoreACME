@@ -5,6 +5,7 @@ import Link from "next/link";
 import { supabase } from "@/_lib/SupabaseClient";
 import Login from "./Login";
 import { User } from "@supabase/supabase-js";
+import React from "react";
 
 export default function Header() {
   const [user, setUser] = useState<User | null>(null);

@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Contact() {
   return (
     <section className="relative overflow-hidden flex-1">

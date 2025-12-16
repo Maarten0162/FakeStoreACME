@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { sixtyfour } from "../fonts";
+import React from "react";
 
 export default function NoProduct({ issue }: { issue: string }) {
   return (

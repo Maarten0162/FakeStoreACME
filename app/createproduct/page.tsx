@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
+import React from "react";
 
 export default function CreateProductPage() {
   const [formData, setFormData] = useState({

@@ -7,6 +7,8 @@ import { PiLessThan } from "react-icons/pi";
 import axios from "axios";
 import EditButton from "@/app/components/EditButton";
 import DeleteButton from "@/app/components/DeleteButton";
+import React from "react";
+
 
 export default async function ProductDetailPage({
   params,
