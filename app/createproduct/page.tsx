@@ -23,18 +23,28 @@ export default function CreateProductPage() {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
+  e.preventDefault();
+  setLoading(true);
+  setError(null);
 
-      await axios.post("/api/products", {
-        ...formData,
-        price: Number(formData.price),
-      });
-      window.location.href = "/products"; // redirect after creation
+  try {
+    await axios.post("/api/products", {
+      ...formData,
+      price: Number(formData.price),
+    });
 
-      setLoading(false);
-  };
+    window.location.href = "/products"; // redirect after creation
+  }  catch (err: unknown) {
+    if (err instanceof Error) {
+      setError(err.message);
+    } else {
+      setError("Something went wrong");
+    }
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <section className="relative overflow-hidden flex-1">
