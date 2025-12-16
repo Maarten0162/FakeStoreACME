@@ -7,7 +7,7 @@ import React, { use } from 'react';
 import Login from "@/app/components/Login";
 import { supabase } from "@/_lib/SupabaseClient";
 import { User } from "@supabase/supabase-js";
-import router from "next/router";
+import { useRouter } from "next/router";
 
 
 export default function EditProduct({ params }: { params: Promise<{ productId: string }> }) {
@@ -15,6 +15,8 @@ export default function EditProduct({ params }: { params: Promise<{ productId: s
   const id = Number(productId);
 
   const [user, setUser] = useState<User | null>(null);
+  
+  const router = useRouter();
 
   // Check user on mount + subscribe to auth changes
   useEffect(() => {
@@ -56,6 +58,8 @@ export default function EditProduct({ params }: { params: Promise<{ productId: s
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const router = useRouter();
+
     e.preventDefault();
     setLoading(true);
         await axios.put(`/api/products/${id}/edit`, {
