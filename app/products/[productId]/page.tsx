@@ -8,6 +8,10 @@ import axios from "axios";
 import EditButton from "@/app/components/EditButton";
 import DeleteButton from "@/app/components/DeleteButton";
 import React from "react";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
+
+
 
 
 export default async function ProductDetailPage({
@@ -24,7 +28,7 @@ export default async function ProductDetailPage({
     return <NoProduct issue="The provided url has an invalid format." />;
   }
 
-  const response = await axios.get(`https://fake-store-acme-mnx5bopul-maartens-projects-07baf8f1.vercel.app/api/products/${id}`);
+  const response = await axios.get(`${baseUrl}/api/products/${id}`);
   const product = response.data as productType;
   
     // Check user on mount + subscribe to auth change

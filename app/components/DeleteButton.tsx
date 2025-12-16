@@ -5,13 +5,14 @@ import { PiTrash } from 'react-icons/pi';
 import { useState, useEffect } from 'react';
 import { User } from '@supabase/supabase-js';
 import { supabase } from '@/_lib/SupabaseClient';
+import router from 'next/router';
 
 export default function DeleteButton({id} : {id: number}) {
     const handleClick = async () =>{
 
         await axios.delete(`/api/products/${id}`)
 
-        window.location.href = "/products"; // redirect after deletion
+              router.push("/products")
     }
 
     const [user, setUser] = useState<User | null>(null);

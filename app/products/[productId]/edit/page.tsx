@@ -7,6 +7,7 @@ import React, { use } from 'react';
 import Login from "@/app/components/Login";
 import { supabase } from "@/_lib/SupabaseClient";
 import { User } from "@supabase/supabase-js";
+import router from "next/router";
 
 
 export default function EditProduct({ params }: { params: Promise<{ productId: string }> }) {
@@ -63,7 +64,7 @@ export default function EditProduct({ params }: { params: Promise<{ productId: s
             price: Number(formData.price),
             image: formData.image
         });
-      window.location.href = "/products";
+      router.push("/products")
       setLoading(false);
     
   };

@@ -7,10 +7,13 @@ import { truncate, formatPrice } from "../../_lib/scripts";
 import axios from "axios";
 import React from "react";
 
+
 export const dynamic = "force-dynamic";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
 
 export default async function ProductsPage() {
-  const response = await axios.get('https://fake-store-acme-mnx5bopul-maartens-projects-07baf8f1.vercel.app/api/products')
+    const response = await axios.get(`${baseUrl}/api/products`);
  
   const products = response.data as productType[]
   

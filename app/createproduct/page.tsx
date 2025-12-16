@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
+import router from "next/router";
 
 export default function CreateProductPage() {
   const [formData, setFormData] = useState({
@@ -34,7 +35,7 @@ export default function CreateProductPage() {
       price: Number(formData.price),
     });
 
-    window.location.href = "/products"; // redirect after creation
+    router.push("/products")// redirect after creation
   }  catch (err: unknown) {
     if (err instanceof Error) {
       setError(err.message);
