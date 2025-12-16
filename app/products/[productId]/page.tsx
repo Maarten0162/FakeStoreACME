@@ -24,7 +24,7 @@ export default async function ProductDetailPage({
     return <NoProduct issue="The provided url has an invalid format." />;
   }
 
-  const response = await axios.get(`http://localhost:3000/api/products/${id}`);
+  const response = await axios.get(`https://fake-store-acme-mnx5bopul-maartens-projects-07baf8f1.vercel.app/api/products/${id}`);
   const product = response.data as productType;
   
     // Check user on mount + subscribe to auth change

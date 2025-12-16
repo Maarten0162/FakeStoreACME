@@ -10,7 +10,7 @@ import React from "react";
 export const dynamic = "force-dynamic";
 
 export default async function ProductsPage() {
-  const response = await axios.get('http://localhost:3000/api/products')
+  const response = await axios.get('https://fake-store-acme-mnx5bopul-maartens-projects-07baf8f1.vercel.app/api/products')
  
   const products = response.data as productType[]
   
