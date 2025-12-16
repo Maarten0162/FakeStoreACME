@@ -4,9 +4,11 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function CreateProductPage() {
+  const router = useRouter();
+  
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -25,27 +27,27 @@ export default function CreateProductPage() {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setLoading(true);
-  setError(null);
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
 
-  try {
-    await axios.post("/api/products", {
-      ...formData,
-      price: Number(formData.price),
-    });
+    try {
+      await axios.post("/api/products", {
+        ...formData,
+        price: Number(formData.price),
+      });
 
-    router.push("/products")// redirect after creation
-  }  catch (err: unknown) {
-    if (err instanceof Error) {
-      setError(err.message);
-    } else {
-      setError("Something went wrong");
+      router.push("/products"); // redirect after creation
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Something went wrong");
+      }
+    } finally {
+      setLoading(false);
     }
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
 
   return (

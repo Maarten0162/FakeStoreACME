@@ -7,16 +7,15 @@ import React, { use } from 'react';
 import Login from "@/app/components/Login";
 import { supabase } from "@/_lib/SupabaseClient";
 import { User } from "@supabase/supabase-js";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 
 export default function EditProduct({ params }: { params: Promise<{ productId: string }> }) {
   const { productId } = use(params); // unwrap the promise
   const id = Number(productId);
+  const router = useRouter();
 
   const [user, setUser] = useState<User | null>(null);
-  
-  const router = useRouter();
 
   // Check user on mount + subscribe to auth changes
   useEffect(() => {
@@ -34,7 +33,7 @@ export default function EditProduct({ params }: { params: Promise<{ productId: s
   }, []);
 
 
- const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     title: '',
     description: '',
     price: '',
@@ -58,23 +57,22 @@ export default function EditProduct({ params }: { params: Promise<{ productId: s
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  const router = useRouter();
-
     e.preventDefault();
     setLoading(true);
-        await axios.put(`/api/products/${id}/edit`, {
-            title: formData.title,
-            description: formData.description,
-            price: Number(formData.price),
-            image: formData.image
-        });
-      router.push("/products")
-      setLoading(false);
-    
+    await axios.put(`/api/products/${id}/edit`, {
+      title: formData.title,
+      description: formData.description,
+      price: Number(formData.price),
+      image: formData.image
+    });
+    router.push("/products")
+    setLoading(false);
   };
+  
   if (!user) {
     return <Login />;
   }
+  
   return (
     
     <section className="relative overflow-hidden flex-1">
