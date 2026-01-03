@@ -11,7 +11,7 @@ Het project is ontwikkeld als onderdeel van mijn HBO-ICT opleiding.
 ## Live Demo
 
 - Live Website: [https://fake-store-acme.vercel.app](https://fake-store-acme.vercel.app/)  
-- GitHub Repository: [https://github.com/Maarten0162/FakeStoreACME)](https://github.com/Maarten0162/FakeStoreACME)
+- GitHub Repository: [https://github.com/Maarten0162/FakeStoreACME](https://github.com/Maarten0162/FakeStoreACME)
 
 ---
 
