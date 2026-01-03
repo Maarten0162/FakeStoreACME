@@ -1,36 +1,193 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fake Store — ACME
 
-## Getting Started
+![Fake Store Screenshot](public/GitBannerFakeStore.png)
 
-First, run the development server:
+Een full-stack webshop applicatie gebouwd met Next.js, inclusief CRUD-functionaliteiten, authenticatie en een Supabase backend.  
+Dit project laat mijn vaardigheden zien op het gebied van full-stack webdevelopment en database-integratie.  
+Het project is ontwikkeld als onderdeel van mijn HBO-ICT opleiding.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Live Demo
+
+- Live Website: [https://fake-store-acme.vercel.app](https://fake-store-acme.vercel.app/)  
+- GitHub Repository: [https://github.com/Maarten0162/FakeStoreACME](https://github.com/Maarten0162/FakeStoreACME)
+
+---
+
+## Overzicht
+
+Het Fake Store project is gemaakt om:
+
+- Full-stack development vaardigheden te demonstreren  
+- Te werken met Supabase authenticatie en database  
+- CRUD-operaties te implementeren met correcte toegangsrechten  
+- Een externe API te integreren  
+- Een moderne en responsive webshop interface te bouwen  
+
+De applicatie is gebaseerd op een fictieve ACME store.  
+Producten worden in eerste instantie opgehaald via de FakeStoreAPI en kunnen vervolgens worden beheerd door ingelogde gebruikers via een eigen interface.
+
+---
+
+## Functionaliteiten
+
+### Authenticatie (Supabase)
+Authenticatie wordt afgehandeld met Supabase Auth, waarmee gebruikers kunnen:
+
+- Registreren met e-mail en wachtwoord  
+- Inloggen en uitloggen  
+- Toegang krijgen tot beveiligde functionaliteiten  
+
+Alleen ingelogde gebruikers kunnen producten aanmaken, aanpassen of verwijderen.
+
+---
+
+### CRUD Functionaliteit (Producten)
+
+| Operatie | Toegang |
+|--------|--------|
+| Producten bekijken | Openbaar (alle gebruikers) |
+| Product aanmaken | Alleen ingelogde gebruikers |
+| Product aanpassen | Alleen ingelogde gebruikers |
+| Product verwijderen | Alleen ingelogde gebruikers |
+
+Dit zorgt voor correcte autorisatie en veilige dataverwerking.
+
+---
+
+### Externe API Integratie
+Producten worden geïmporteerd via de [FakeStoreAPI](https://fakestoreapi.com/).  
+Deze producten worden vervolgens opgeslagen en beheerd binnen de Supabase database, waardoor volledige CRUD-functionaliteit mogelijk is.
+
+---
+
+### Modern & Responsive
+De applicatie is gebouwd met moderne tools en best practices:
+
+- Responsive design  
+- Strakke UI met Tailwind CSS  
+- Server-side rendering met Next.js  
+- Modulaire componentstructuur  
+
+---
+
+## Gebruikte Technologieën
+
+- Framework: Next.js  
+- Taal: TypeScript  
+- Styling: Tailwind CSS  
+- Database & Authenticatie: Supabase  
+- Auth UI: @supabase/auth-ui-react  
+- Externe API: FakeStoreAPI  
+
+---
+
+## Geïnstalleerde Packages
+
+- Supabase  
+- Supabase Auth UI React  
+- Tailwind CSS  
+- ESLint  
+
+---
+
+## Bestandsstructuur
+
+```txt
+FakeStoreACME/
+├── _lib/
+│   ├── scripts.ts
+│   └── SupabaseClient.ts
+├── .gitattributes
+├── .gitignore
+├── app/
+│   ├── _lib/
+│   │   └── SupabaseClient.ts
+│   ├── api/
+│   │   └── products/
+│   │       ├── [id]/
+│   │       │   ├── edit/
+│   │       │   │   └── route.ts
+│   │       │   └── route.ts
+│   │       └── route.ts
+│   ├── commands/
+│   │   ├── createitem.tsx
+│   │   └── importitems.tsx
+│   ├── components/
+│   │   ├── DeleteButton.tsx
+│   │   ├── EditButton.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── Login.tsx
+│   │   └── NoProduct.tsx
+│   ├── contact/
+│   │   └── page.tsx
+│   ├── createproduct/
+│   │   └── page.tsx
+│   ├── favicon.ico
+│   ├── fonts.ts
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── login/
+│   │   └── page.tsx
+│   ├── not-found.tsx
+│   ├── page.tsx
+│   └── products/
+│       ├── [productId]/
+│       │   ├── edit/
+│       │   │   └── page.tsx
+│       │   └── page.tsx
+│       └── page.tsx
+├── eslint.config.mjs
+├── next.config.js
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public/
+│   └── shop.jpg
+├── README.md
+├── tailwind.config.js
+├── tsconfig.json
+└── types/
+    └── product.ts
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+# Clone de repository
+git clone https://github.com/Maarten0162/FakeStoreACME.git
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Ga naar de projectmap
+cd FakeStoreACME
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Installeer dependencies
+npm install
 
-## Learn More
+# Start de development server
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## License
+MIT License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Copyright (c) 2025 Maarten van den Berg
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## Deploy on Vercel
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
