@@ -2,131 +2,170 @@
 
 ![Fake Store Screenshot](public/GitBannerFakeStore.png)
 
-A full-stack webshop application built with Next.js, featuring CRUD functionality, authentication, and a Supabase backend.  
-This project demonstrates my skills in full-stack web development and database integration.  
-It was developed as part of my HBO-ICT study program.
+Een full-stack webshop applicatie gebouwd met Next.js, inclusief CRUD-functionaliteiten, authenticatie en een Supabase backend.  
+Dit project laat mijn vaardigheden zien op het gebied van full-stack webdevelopment en database-integratie.  
+Het project is ontwikkeld als onderdeel van mijn HBO-ICT opleiding.
 
 ---
 
 ## Live Demo
 
-- **Live Website:** https://fake-store-acme.vercel.app/  
-- **GitHub Repository:** https://github.com/Maarten0162/FakeStoreACME
+- Live Website: [https://fake-store-acme.vercel.app](https://fake-store-acme.vercel.app/)  
+- GitHub Repository: [https://github.com/Maarten0162/FakeStoreACME)](https://github.com/Maarten0162/FakeStoreACME)
 
 ---
 
-## Overview
+## Overzicht
 
-The Fake Store project was created to:
+Het Fake Store project is gemaakt om:
 
-- Demonstrate full-stack development skills  
-- Work with Supabase authentication and database
-- Implement CRUD operations with proper access control  
-- Consume and integrate an external API
-- Build a modern, responsive webshop interface  
+- Full-stack development vaardigheden te demonstreren  
+- Te werken met Supabase authenticatie en database  
+- CRUD-operaties te implementeren met correcte toegangsrechten  
+- Een externe API te integreren  
+- Een moderne en responsive webshop interface te bouwen  
 
-The application is based on a fictional ACME store.  
-Products are initially fetched from the FakeStoreAPI and can then be managed by authenticated users through a custom interface.
-
----
-
-## Features
-
-### Authentication (Supabase)
-Authentication is handled using Supabase Auth, allowing users to:
-
-- Register with email & password  
-- Log in and log out  
-- Access protected functionality once authenticated  
-
-Only **logged-in users** can create, update, or delete products.
+De applicatie is gebaseerd op een fictieve ACME store.  
+Producten worden in eerste instantie opgehaald via de FakeStoreAPI en kunnen vervolgens worden beheerd door ingelogde gebruikers via een eigen interface.
 
 ---
 
-### CRUD Functionality (Products)
+## Functionaliteiten
 
-| Operation | Access |
-|---------|-------|
-| Read products | Public (all users) |
-| Create product | Authenticated users only |
-| Update product | Authenticated users only |
-| Delete product | Authenticated users only |
+### Authenticatie (Supabase)
+Authenticatie wordt afgehandeld met Supabase Auth, waarmee gebruikers kunnen:
 
-This ensures proper authorization and data safety.
+- Registreren met e-mail en wachtwoord  
+- Inloggen en uitloggen  
+- Toegang krijgen tot beveiligde functionaliteiten  
+
+Alleen ingelogde gebruikers kunnen producten aanmaken, aanpassen of verwijderen.
 
 ---
 
-### External API Integration
-Products are imported using the [FakeStoreAPI](https://fakestoreapi.com/)
-These products are then stored and managed within the Supabase database, allowing full CRUD control.
+### CRUD Functionaliteit (Producten)
+
+| Operatie | Toegang |
+|--------|--------|
+| Producten bekijken | Openbaar (alle gebruikers) |
+| Product aanmaken | Alleen ingelogde gebruikers |
+| Product aanpassen | Alleen ingelogde gebruikers |
+| Product verwijderen | Alleen ingelogde gebruikers |
+
+Dit zorgt voor correcte autorisatie en veilige dataverwerking.
+
+---
+
+### Externe API Integratie
+Producten worden geïmporteerd via de [FakeStoreAPI](https://fakestoreapi.com/).  
+Deze producten worden vervolgens opgeslagen en beheerd binnen de Supabase database, waardoor volledige CRUD-functionaliteit mogelijk is.
 
 ---
 
 ### Modern & Responsive
-The application is built using modern tooling and best practices:
+De applicatie is gebouwd met moderne tools en best practices:
 
 - Responsive design  
-- Clean UI with Tailwind CSS  
-- Server-side rendering with Next.js  
-- Modular component structure  
+- Strakke UI met Tailwind CSS  
+- Server-side rendering met Next.js  
+- Modulaire componentstructuur  
 
 ---
 
-## Technologies Used
+## Gebruikte Technologieën
 
-- **Framework:** Next.js  
-- **Language:** TypeScript  
-- **Styling:** Tailwind CSS  
-- **Database & Auth:** Supabase  
-- **Auth UI:** `@supabase/auth-ui-react`  
-- **External API:** FakeStoreAPI  
-
----
-
-## Installed Packages
-
-- Supabase
-- Supabase Auth UI React
-- Tailwind CSS
-- ESLint
+- Framework: Next.js  
+- Taal: TypeScript  
+- Styling: Tailwind CSS  
+- Database & Authenticatie: Supabase  
+- Auth UI: @supabase/auth-ui-react  
+- Externe API: FakeStoreAPI  
 
 ---
 
-## File Structure
+## Geïnstalleerde Packages
+
+- Supabase  
+- Supabase Auth UI React  
+- Tailwind CSS  
+- ESLint  
+
+---
+
+## Bestandsstructuur
 
 ```txt
 FakeStoreACME/
+├── _lib/
+│   ├── scripts.ts
+│   └── SupabaseClient.ts
+├── .gitattributes
+├── .gitignore
 ├── app/
+│   ├── _lib/
+│   │   └── SupabaseClient.ts
+│   ├── api/
+│   │   └── products/
+│   │       ├── [id]/
+│   │       │   ├── edit/
+│   │       │   │   └── route.ts
+│   │       │   └── route.ts
+│   │       └── route.ts
+│   ├── commands/
+│   │   ├── createitem.tsx
+│   │   └── importitems.tsx
 │   ├── components/
-│   ├── login/
-│   ├── products/
+│   │   ├── DeleteButton.tsx
+│   │   ├── EditButton.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── Login.tsx
+│   │   └── NoProduct.tsx
+│   ├── contact/
+│   │   └── page.tsx
+│   ├── createproduct/
+│   │   └── page.tsx
+│   ├── favicon.ico
+│   ├── fonts.ts
+│   ├── globals.css
 │   ├── layout.tsx
-│   └── page.tsx
-├── lib/
-│   ├── supabase/
-│   │   ├── client.ts
-│   │   └── server.ts
-│   └── api/
-├── public/
-├── styles/
+│   ├── login/
+│   │   └── page.tsx
+│   ├── not-found.tsx
+│   ├── page.tsx
+│   └── products/
+│       ├── [productId]/
+│       │   ├── edit/
+│       │   │   └── page.tsx
+│       │   └── page.tsx
+│       └── page.tsx
+├── eslint.config.mjs
+├── next.config.js
 ├── next.config.ts
+├── package-lock.json
 ├── package.json
+├── postcss.config.mjs
+├── public/
+│   └── shop.jpg
+├── README.md
+├── tailwind.config.js
 ├── tsconfig.json
-└── README.md 
+└── types/
+    └── product.ts
+
 ```
 
-## Installation
 ```bash
-# Clone the repository
+# Clone de repository
 git clone https://github.com/Maarten0162/FakeStoreACME.git
 
-# Navigate into the project
+# Ga naar de projectmap
 cd FakeStoreACME
 
-# Install dependencies
+# Installeer dependencies
 npm install
 
-# Run the development server
+# Start de development server
 npm run dev
 ```
 
@@ -152,7 +191,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-
