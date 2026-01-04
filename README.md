@@ -74,12 +74,12 @@ De applicatie is gebouwd met moderne tools en best practices:
 
 ## Gebruikte Technologieën
 
-- Framework: Next.js  
-- Taal: TypeScript  
-- Styling: Tailwind CSS  
-- Database & Authenticatie: Supabase  
-- Auth UI: @supabase/auth-ui-react  
-- Externe API: FakeStoreAPI  
+- Framework: Next.js 15.5.9  
+- Taal: TypeScript ^5  
+- Styling: Tailwind CSS ^4  
+- Database & Authenticatie: Supabase (supabase-js ^2.58.0)  
+- Auth UI: @supabase/auth-ui-react ^0.4.7  
+- Externe API: FakeStoreAPI
 
 ---
 
